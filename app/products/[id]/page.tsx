@@ -254,16 +254,16 @@ export default function Product_detail() {
         {/* select size */}
         <div className="mt-3 pt-3 border-t">
             <p className="text-black/60 ">Select Size</p>
-            <div className="flex space-x-3 mt-2" >
-                <div className="px-[24px] py-[12px] rounded-[62px] bg-[#F0F0F0] text-black/60 text-[16px]">Small</div>
-                <div className="px-[24px] py-[12px] rounded-[62px] bg-[#F0F0F0] text-black/60 text-[16px]">Medium</div>
-                <div className="px-[24px] py-[12px] rounded-[62px] bg-black text-white text-[16px]">Large</div>
-                <div className=" px-[24px] py-[12px] rounded-[62px] bg-[#F0F0F0] text-black/60 text-[16px]">X-Large</div>
+            <div className="flex space-x-2 md:space-x-3 mt-2" >
+                <div className="flex justify-between items-center px-[20px] md:px-[24px] py-[10px] md:py-[12px] rounded-[62px] bg-[#F0F0F0] text-black/60 text-[14px] md:text-[16px]">Small</div>
+                <div className="flex justify-between items-center px-[20px] md:px-[24px] py-[10px] md:py-[12px] rounded-[62px] bg-[#F0F0F0] text-black/60 text-[14px] md:text-[16px]">Medium</div>
+                <div className="flex justify-between items-center px-[20px] md:px-[24px] py-[10px] md:py-[12px] rounded-[62px] bg-black text-white text-[14px] md:text-[16px]">Large</div>
+                <div className="flex justify-between items-center px-[20px] md:px-[24px] py-[10px] md:py-[12px] rounded-[62px] bg-[#F0F0F0] text-black/60 text-[14px] md:text-[16px]">X-Large</div>
             </div>
         </div>
       
        {/* buttons  */}
-       <div className="flex justify-start items-center mt-4 pt-4 space-x-4 border-t">
+       <div className="flex justify-start items-center mt-4 pt-4 space-x-2 md:space-x-4 border-t">
        <div className="flex justify-between items-center w-[150px] md:w-[170px] px-[20px] py-[14px] rounded-[62px] bg-[#F0F0F0] text-black text-[16px] font-bold">
         <FontAwesomeIcon icon={faPlus} className="text-[22px] hover:cursor-pointer" onClick={increment}/>
             {count}
@@ -271,7 +271,7 @@ export default function Product_detail() {
        </div>
        
        <Link href="/Cart">
-       <Button className="w-[270px] md:w-[400px] h-[52px] px-[54px] py-[16px] rounded-[62px] bg-black text-white">Add to Cart</Button>
+       <Button className="w-[240px] md:w-[400px] h-[52px] px-[54px] py-[16px] rounded-[62px] bg-black text-white">Add to Cart</Button>
        </Link>
        </div>
       </div>
