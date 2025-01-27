@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -159,6 +159,18 @@ const product: Iproduct[] = [
 ];
 
 export default function Product_detail() {
+  // Functionality of items increment and decrement
+  const [count, setCount] = useState(1);
+
+  const increment = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+
+  const decrement = () => {
+    if (count > 1) {
+      setCount((prevCount) => prevCount - 1);
+    }
+  };
   const params = useParams();
   const id = params.id; //id coming from dynamic routing path
   const item = product.find((item) => item.id === Number(id));
@@ -168,6 +180,9 @@ export default function Product_detail() {
 
   // Corrected: Dynamically render images based on available properties
   const images = [item.img1, item.img2, item.img3].filter((img): img is string => Boolean(img));
+
+
+  
 
   return (
     <>
@@ -250,9 +265,9 @@ export default function Product_detail() {
        {/* buttons  */}
        <div className="flex justify-start items-center mt-4 pt-4 space-x-4 border-t">
        <div className="flex justify-between items-center w-[150px] md:w-[170px] px-[20px] py-[14px] rounded-[62px] bg-[#F0F0F0] text-black text-[16px] font-bold">
-        <FontAwesomeIcon icon={faPlus} className="text-[22px]"/>
-            1
-       <FontAwesomeIcon icon={faMinus} className="text-[22px]"/>
+        <FontAwesomeIcon icon={faPlus} className="text-[22px] hover:cursor-pointer" onClick={increment}/>
+            {count}
+       <FontAwesomeIcon icon={faMinus} className="text-[22px] hover:cursor-pointer"  onClick={decrement}/>
        </div>
        
        <Link href="/Cart">

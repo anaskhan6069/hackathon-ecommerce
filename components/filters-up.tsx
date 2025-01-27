@@ -38,7 +38,7 @@ export function Filters_up() {
             </SheetHeader>
             {/* FILTERS */}
                     
-            <div className="w-full md:w-[310px] h-full rounded-[20px] overflow-scroll mt-8">
+            <div className="w-full md:w-[310px] h-full rounded-[20px] overflow-scroll mt-8 ">
                 <AccordionDemo></AccordionDemo>
                 <SliderDemo></SliderDemo>
                 <CheckboxDemo></CheckboxDemo>

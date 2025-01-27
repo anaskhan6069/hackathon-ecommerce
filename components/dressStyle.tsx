@@ -44,8 +44,8 @@ import { Button } from "./ui/button"
       </div>
 
         {/* button */}
-      <div className="flex justify-center items-center">  
-        <Button className="w-[90%] rounded-[62px]">Apply Filter</Button>
+      <div className="flex justify-center items-center mb-10 md:mb-0">  
+        <Button className="w-[100%] rounded-[62px]">Apply Filter</Button>
       </div>
     </>
     )

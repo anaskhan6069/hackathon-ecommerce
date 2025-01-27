@@ -24,31 +24,32 @@ const cartItem: ICart[] = [
   },
   {
     id: 2,
-    imageURL: "/product-detail/alsolike2.png",
+    imageURL: "/products/product3.png",
     title: "Gradient Graphic T-shirt",
-    size: "Large",
-    color: "White",
-    price: "$145",
+    size: "Small",
+    color: "Black",
+    price: "$120",
   },
   {
     id: 3,
-    imageURL: "/product-detail/alsolike2.png",
+    imageURL: "/products/product2.png",
     title: "Gradient Graphic T-shirt",
-    size: "Large",
-    color: "White",
-    price: "$145",
+    size: "Medium",
+    color: "Blue",
+    price: "$99",
   },
   {
     id: 4,
-    imageURL: "/product-detail/alsolike2.png",
+    imageURL: "/product-detail/alsolike1.png",
     title: "Gradient Graphic T-shirt",
-    size: "Large",
-    color: "White",
-    price: "$145",
+    size: "Extra Large",
+    color: "Black",
+    price: "$180",
   },
 ];
 
 export default function Cart() {
+
   return (
     <>
     <div className="pl-0 md:pl-3 mt-[-10px]">

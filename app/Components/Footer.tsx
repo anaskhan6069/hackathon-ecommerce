@@ -92,7 +92,7 @@ export default function Footer(){
             {/* bottom div */}
             <div className="flex flex-col md:flex-row justify-between items-center border-t-2 pt-4 mx-4 md:mx-20 mt-8 md:mt-0 space-y-3 md:space-y-0 pb-14">
                 <p className="text-[14px] text-black/60">Shop.co © 2000-2023, All Rights Reserved</p>
-
+                <p className="text-[14px] text-black/60">{"</>"} Developed by Anas Khan &#128420;</p>
                 <div className="flex">
                     <Image src="/visa.png" alt="visa pay" width={100} height={100} className="w-[60px] md-[70px]"></Image>
                     <Image src="/mastercard.png" alt="goole pay" width={100} height={100} className="w-[60px] md-[70px]"></Image>
