@@ -94,7 +94,7 @@ const product: Iproduct[] = [
 export default function Casual_Shirts() {
   return (
     <>
-      <div className="w-full h-[full] max-w-screen-2xl mx-auto">
+      <div className="w-full sm:w-[96%] h-[full] max-w-screen-2xl mx-auto">
         <div className="flex justify-between items-center mb-5 md:mb-0 px-5 md:px-0">
             <h1 className="text-[30px] md:text-[32px] md:text-left font-extrabold text-center">
                 Casual
@@ -105,12 +105,12 @@ export default function Casual_Shirts() {
         </div>
         
 
-        <div className="flex flex-col md:flex-row flex-wrap justify-center items-center md:justify-between mt-2">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-9 mt-2 px-4 md:px-0">
           {product.map((data) => {
             return (
                 <Link href={`/products/${data.id}`} key={data.id}>
-              <div key={data.id} className="mb-5 lg:mb-7 ">
-                  <div className="w-[220px] h-[230px] md:w-[290px] md:h-[300px] bg-[#F0EEED] rounded-[20px] overflow-hidden">
+              <div key={data.id} className="mb-5 lg:mb-0 h-[240px] sm:h-[420px]">
+                  <div className="w-full aspect-[4/5] h-[140px] sm:h-[280px] bg-[#F0EEED] rounded-[20px] overflow-hidden">
                     <Image
                       src={data.img_url}
                       alt={data.title}
@@ -121,7 +121,7 @@ export default function Casual_Shirts() {
                   </div>
 
                 <div>
-                  <p className="md:text-[18px] text-[16px] font-bold md:mt-3 mt-1">
+                  <p className="md:text-[18px] sm:text-[16px] text-[14px] font-bold md:mt-3 mt-1">
                     {data.title}
                   </p>
                   <div className="flex text-[#FFC633] md:text-[14px] text-[12px] gap-2 mt-1">
@@ -134,14 +134,17 @@ export default function Casual_Shirts() {
                       {data.ratings}
                     </p>
                   </div>
-                  <p className="md:text-[22px] text-[20px] font-bold mt-1 flex items-center gap-3">
+                  <p className="md:text-[22px] sm:text-[18px] text-[16px] font-bold mt-1 flex items-center gap-3">
                     {data.price}
                     <span className="text-black/40 line-through">
                       {data.old_price}
                     </span>
-                    <span className="text-[12px] py-[6px] px-[14px] rounded-[62px] bg-[#FF3333]/10 text-[#FF3333]">
+                    {data.price_percentage ? (
+                      <span className="text-[12px] py-[6px] px-[12px] md:py-[6px] md:px-[14px] rounded-[62px] bg-[#FF3333]/10 text-[#FF3333]">
                       {data.price_percentage}
                     </span>
+                    ) : null }
+                    
                   </p>
                 </div>
               </div>

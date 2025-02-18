@@ -8,10 +8,11 @@ import Casual_Shirts from "../Components/casual-shirts";
 import { BreadcrumbDemo } from "@/components/ui/myBreadCrumb";
 
 export default function Casual(){
+    
     return(
         <>
         <BreadcrumbDemo></BreadcrumbDemo>
-        <main className="flex flex-col md:flex-row justify-center md:space-x-6 md:mt-5">
+        <main className="flex flex-col md:flex-row justify-center md:mt-5 md:pl-4 pl-0">
             {/* Left */}
             <div className="hidden md:block w-full md:w-[310px] h-full rounded-[20px] p-5 border">
             <AccordionDemo></AccordionDemo>
@@ -22,7 +23,7 @@ export default function Casual(){
             </div>
 
             {/* right */}
-            <div className="w-full md:w-[930px] h-full mt-8 md:mt-0">
+            <div className="w-full md:w-[76%] h-full mt-8 md:mt-0 ">
             <Casual_Shirts/>
             </div>
         </main>

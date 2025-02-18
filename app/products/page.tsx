@@ -8,7 +8,7 @@ export default function Casual(){
         <main className="flex flex-col md:flex-row justify-center md:space-x-6 md:mt-5">
 
             {/* right */}
-            <div className="w-full md:w-[94%] h-full mt-8 md:mt-0">
+            <div className="w-full h-full mt-8 md:mt-0">
             <Casual_Shirts/>
             </div>
         </main>

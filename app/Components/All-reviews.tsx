@@ -97,7 +97,7 @@ export default function All_reviews(){
 
                     {/* Button */}
             <div className="flex justify-center items-center">
-          <button className="border hover:bg-slate-200 transition-all duration-200  px-[54px] py-[14px] rounded-[62px] mt-7">
+          <button className="border-2 hover:bg-slate-200 transition-all duration-200  px-[54px] py-[14px] rounded-[62px] mt-7">
             Load More Reviews
           </button>
         </div>

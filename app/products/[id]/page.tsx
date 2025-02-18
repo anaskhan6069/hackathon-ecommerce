@@ -161,6 +161,11 @@ const product: Iproduct[] = [
 export default function Product_detail() {
   // Functionality of items increment and decrement
   const [count, setCount] = useState(1);
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
+  const sizes = ["Small", "Medium", "Large", "X-Large"];
+
+  const [selectedColor, setSelectedColor] = useState<string | null>(null);
+  const colors = ["#4F4631", "#314F4A", "#31344F"];
 
   const increment = () => {
     setCount((prevCount) => prevCount + 1);
@@ -189,7 +194,7 @@ export default function Product_detail() {
 
     <BreadcrumbDemo></BreadcrumbDemo>
 
-    <div className="lg:h-[530px] md:h-[430px] flex flex-col md:flex-row justify-center md:justify-evenly md:mt-10 p-4 md:p-0 md:px-6 max-w-screen-2xl mx-auto">
+    <div className="flex flex-col md:flex-row justify-center md:justify-evenly md:mt-10 p-4 md:p-0 md:px-6 max-w-screen-2xl mx-auto">
       {/* left */}
       <div className="w-full lg:w-[160px] md:w-[130px] flex md:flex-col justify-start items-center gap-4 lg:gap-3 md:gap-1 order-2 md:order-1 overflow-hidden">
         {/* Dynamically render images */}
@@ -234,33 +239,57 @@ export default function Product_detail() {
         <p className="text-[24px] md:text-[28px] lg:text-[32px] font-bold mt-1 flex items-center gap-3">
           {item.price}
           <span className="text-black/40 line-through">{item.old_price}</span>
-          <span className="text-[16px] md:text-[14px] py-[6px] px-[12px] md:px-[14px] rounded-[62px] bg-[#FF3333]/10 text-[#FF3333]">
-            {item.price_percentage}
-          </span>
+          {item.price_percentage ? (
+                      <span className="text-[12px] py-[6px] px-[12px] md:py-[6px] md:px-[14px] rounded-[62px] bg-[#FF3333]/10 text-[#FF3333]">
+                      {item.price_percentage}
+                    </span>
+                    ) : null}
         </p>
         {/* descreption */}
         <p className="md:text-[16px] text-[14px] text-black/60">{item.discreption}</p>
 
         {/* select color */}
         <div className="mt-3 pt-3 border-t">
-            <p className="text-black/60">Select Color</p>
-            <div className="flex gap-3 mt-2">
-                <div className="w-[37px] h-[37px] rounded-full bg-[#4F4631] flex justify-center items-center"><FontAwesomeIcon icon={faCheck} className="w-[16px] h-[16px] text-white opacity-0 hover:opacity-100 hover:cursor-pointer"/></div>
-                <div className="w-[37px] h-[37px] rounded-full bg-[#314F4A] flex justify-center items-center"><FontAwesomeIcon icon={faCheck} className="w-[16px] h-[16px] text-white opacity-0 hover:opacity-100 hover:cursor-pointer"/></div>
-                <div className="w-[37px] h-[37px] rounded-full bg-[#31344F] flex justify-center items-center"><FontAwesomeIcon icon={faCheck} className="w-[16px] h-[16px] text-white opacity-0 hover:opacity-100 hover:cursor-pointer"/></div>
-            </div>
-        </div>
+      <p className="text-black/60">Select Color</p>
+      <div className="flex gap-3 mt-2">
+        {colors.map((color) => (
+          <div
+            key={color}
+            onClick={() => setSelectedColor(color)}
+            className={`w-[37px] h-[37px] rounded-full flex justify-center items-center cursor-pointer transition-all duration-200 
+              ${selectedColor === color ? "scale-110 shadow-md" : "scale-100"} `}
+            style={{ backgroundColor: color }}
+          >
+            <FontAwesomeIcon
+              icon={faCheck}
+              className={`w-[16px] h-[16px] text-white transition-opacity duration-200 
+                ${selectedColor === color ? "opacity-100" : "opacity-0"}`}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
 
         {/* select size */}
         <div className="mt-3 pt-3 border-t">
-            <p className="text-black/60 ">Select Size</p>
-            <div className="flex space-x-2 md:space-x-3 mt-2" >
-                <div className="flex justify-between items-center px-[20px] md:px-[24px] py-[10px] md:py-[12px] rounded-[62px] bg-[#F0F0F0] text-black/60 text-[14px] md:text-[16px]">Small</div>
-                <div className="flex justify-between items-center px-[20px] md:px-[24px] py-[10px] md:py-[12px] rounded-[62px] bg-[#F0F0F0] text-black/60 text-[14px] md:text-[16px]">Medium</div>
-                <div className="flex justify-between items-center px-[20px] md:px-[24px] py-[10px] md:py-[12px] rounded-[62px] bg-black text-white text-[14px] md:text-[16px]">Large</div>
-                <div className="flex justify-between items-center px-[20px] md:px-[24px] py-[10px] md:py-[12px] rounded-[62px] bg-[#F0F0F0] text-black/60 text-[14px] md:text-[16px]">X-Large</div>
-            </div>
-        </div>
+      <p className="text-black/60">Select Size</p>
+      <div className="flex space-x-2 md:space-x-3 mt-2">
+        {sizes.map((size) => (
+          <div
+            key={size}
+            onClick={() => setSelectedSize(size)}
+            className={`flex justify-between items-center px-[20px] md:px-[24px] py-[10px] md:py-[12px] rounded-[62px] text-[14px] md:text-[16px] cursor-pointer transition-all 
+              ${
+                selectedSize === size
+                  ? "bg-black text-white"
+                  : "bg-[#F0F0F0] text-black/60"
+              }`}
+          >
+            {size}
+          </div>
+        ))}
+      </div>
+    </div>
       
        {/* buttons  */}
        <div className="flex justify-start items-center mt-4 pt-4 space-x-2 md:space-x-4 border-t">
@@ -271,7 +300,7 @@ export default function Product_detail() {
        </div>
        
        <Link href="/Cart">
-       <Button className="w-[240px] md:w-[400px] h-[52px] px-[54px] py-[16px] rounded-[62px] bg-black text-white">Add to Cart</Button>
+       <Button className="w-[240px] md:w-[400px]  h-[52px] px-[54px] py-[16px] rounded-[62px] bg-black text-white">Add to Cart</Button>
        </Link>
        </div>
       </div>

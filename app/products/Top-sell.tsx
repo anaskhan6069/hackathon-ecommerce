@@ -54,12 +54,12 @@ export default function Top_sell() {
         Top Sell
       </h1>
 
-      <div className="flex flex-col md:flex-row flex-wrap justify-center items-center md:justify-between mt-10">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-9 justify-center items-center md:justify-between mt-10">
         {product.map((data) => {
           return (
             <Link href={`/products/${data.id}`} key={data.id}>
-              <div key={data.id} className="mb-5 lg:mb-0">
-                <div className="w-[220px] h-[230px] md:w-[290px] md:h-[300px] bg-[#F0EEED] rounded-[20px] overflow-hidden">
+              <div key={data.id} className="mb-5 lg:mb-0 h-[240px] sm:h-[420px]">
+                <div className="w-full aspect-[4/5] h-[140px] sm:h-[280px] bg-[#F0EEED] rounded-[20px] overflow-hidden">
                   <Image
                     src={data.img_url}
                     alt={data.title}
@@ -70,7 +70,7 @@ export default function Top_sell() {
                 </div>
 
                 <div>
-                  <p className="md:text-[18px] text-[16px] font-bold md:mt-3 mt-1">
+                  <p className="md:text-[18px] sm:text-[16px] text-[14px] font-bold md:mt-3 mt-1">
                     {data.title}
                   </p>
                   <div className="flex text-yellow-400 md:text-[14px] text-[12px] gap-2 mt-1">
@@ -83,14 +83,16 @@ export default function Top_sell() {
                       {data.ratings}
                     </p>
                   </div>
-                  <p className="md:text-[20px] text-[18px] font-bold mt-1 flex items-center gap-3">
+                  <p className="md:text-[20px] sm:text-[18px] text-[16px] font-bold mt-1 flex items-center gap-3">
                     {data.price}
                     <span className="text-black/40 line-through">
                       {data.old_price}
                     </span>
-                    <span className="text-[12px] py-[6px] px-[14px] rounded-[62px] bg-[#FF3333]/10 text-[#FF3333]">
+                    {data.price_percentage ? (
+                      <span className="text-[12px] py-[6px] px-[12px] md:py-[6px] md:px-[14px] rounded-[62px] bg-[#FF3333]/10 text-[#FF3333]">
                       {data.price_percentage}
                     </span>
+                    ) : null}
                   </p>
                 </div>
               </div>
@@ -101,7 +103,7 @@ export default function Top_sell() {
 
       {/* button */}
       <div className="flex justify-center items-center">
-        <button className="border hover:bg-slate-200 transition-all duration-200 w-full md:w-[218px] px-[54px] py-[14px] rounded-[62px] mt-7">
+        <button className="border-2 hover:bg-slate-200 transition-all duration-200 w-full md:w-[218px] px-[54px] py-[14px] rounded-[62px] mt-7">
           View All
         </button>
       </div>

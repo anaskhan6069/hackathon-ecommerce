@@ -60,7 +60,7 @@ const Header = () => {
             <Link href="Cart"><FontAwesomeIcon icon={faCartShopping} /></Link>
           </span>
           <span>
-            <Link href="/"><FontAwesomeIcon icon={faUser} /></Link>
+            <Link href="Profile"><FontAwesomeIcon icon={faUser} /></Link>
           </span>
         </div>
       </div>
